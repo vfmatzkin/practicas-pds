@@ -1,0 +1,19 @@
+Amplitud = 3
+Fase = -0.75398
+F_s = 20
+T_m = 0.00125 --> F_m = 800
+
+Análisis:
+
+	La Amplitud es 3, ya que es el máximo (y mínimo en valor absoluto) valor que toma la onda.
+	f_s sería 2 si t fuera de 0 a 1 (al verse dos ondas completas), pero al ir de 0 a 0.1 se multiplica por 10, siendo 20
+	Para el valor de la fase utilizo la relación phi = -2*pi*f_s*t_1, con f_s valor de la frecuencia de la 	señal, y t_1, primera raíz que es en .06 aproximadamente (no hay mucha precisión al tener la gráfica), lo cual da un phi = -2*pi*2*.06 = -0.75398
+	Para el período de muestreo se que para 0.01 hay 8 muestras, por lo que cada T_m = 0.01 / 8 = 0.00125 hay una muestra, por lo que F_m = 1/T_m = 800
+	
+Se puede recrear la onda discreta con el siguiente script:
+
+%% ejercicio3.m %%
+f_s=20;f_m=800;t_i=0;t_f=.1;phi=-0.75398;
+[t,y]=senoidal1(f_s,f_m,t_i,t_f,phi);
+stem(t,y*3);
+%% ejercicio3.m %%
